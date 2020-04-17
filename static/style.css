@@ -1,0 +1,118 @@
+
+*{
+    margin: 0 auto;
+    padding: 0;
+    max-width: 1000px;
+    font-family: 'Noto Serif KR', serif;
+}
+
+.nav{
+    margin:50px 0 100px 0;
+}
+
+.submit-btn{
+    height: 40px;
+    width: 80px;
+    background-color: #00000020;
+    color: #00000090;
+    font-size: 16px;
+    font-weight: bold;
+    border: none;
+    border-radius: 24px;
+}
+
+#MainLogo{
+    padding: 200px;
+    font-size: 50px;
+    font-weight: bold;
+}
+
+.login{
+    padding-top: 200px;
+    margin: auto;
+}
+.login-btn{
+    text-align: center;
+    margin: 10px;
+}
+
+/*.container{
+    width: 100%;
+    height: 100%;
+}
+.menu ul{
+    display: inline-flex;
+    margin: 50px ;
+}
+.menu ul li{ 
+    list-style: none;
+    margin: 0 20px;
+    color: #6b6b6b;
+    cursor: pointer;
+}
+.logo {
+    margin-top: -7px;
+    margin-right: 50px;
+    font-size: 20px;
+}
+.new-btn{
+    top: 40px;
+    right: 80px;
+    text-align: right;
+    position: absolute;
+    color: #8c68ee90;
+    border: 2px solid transparent;
+    border-radius: 20px;
+    background-image: linear-gradient(#fff, #fff), radial-gradient(circle at top left,rgb(255, 189, 189),#8c68eeb9);
+    background-origin: border-box;
+    background-clip: content-box, border-box;
+}
+
+.new-btn span{
+    display: block;
+    padding: 8px 22px;
+}*/
+.card-btn {
+    text-align: right
+}
+.card-btn-el{
+    height: 30px;
+    width: 60px;
+    color: #00000090;
+    font-size: 14px;
+    border: none;
+    margin: 0 5px;
+}
+
+  @include media-breakpoint-only(lg) {
+    column-count: 3;
+  }
+  @include media-breakpoint-only(xl) {
+    column-count: 3;
+  }
+
+
+.weekly-emo{
+    margin: 100px;
+    padding-bottom: 25px;
+    text-align: center;
+}
+
+
+
+  
+.posting{
+    padding-top: 50px;
+}  
+.emo-collect{
+    padding-top: 50px;
+}
+
+.daily-feeling{
+    background-color: #8c68ee;
+    width: 30px ;
+    height: 100px;
+    box-sizing: border-box;
+    resize: none;
+}
+

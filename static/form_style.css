@@ -1,0 +1,73 @@
+body{
+    margin:0;
+    padding:0;
+}
+
+.title {
+    background-color:transparent;
+    border: transparent;
+	color:#00000080;
+	font-size:28px;
+	height:60px;
+    width:1000px;
+    margin-top: 30px;
+    padding: 15px 0;
+    
+}
+input:focus {outline:none;}
+.content {
+    
+    border: none;
+    background-color:transparent;
+	color:#00000080;
+	font-size:20px;
+	height:400px;
+    width:1000px;
+    padding: 15px 0;
+}
+textarea:focus {outline:none;}
+
+.post-btn{
+    text-align: right;
+    padding: 10px;
+}
+
+
+
+.emo-color{
+    margin-top: 200px;
+    top:40px;
+    right: 40px;
+}
+.emo-color a{
+    width:30px;
+    height: 30px;
+    float: left;
+    border-radius: 15px;
+    text-indent: -9999px;
+    margin: 5px;
+}
+#joy{
+    background:#fff3ff;
+}
+#sad{
+    background:#e9e9ff;
+}
+#surprise{
+    background:#fffbe6;
+}
+#angry{
+    background:#ffe6e6;
+}
+#happy{
+    background:#ebfcec;
+}
+#annoy{
+    background:#ffeddc;
+}
+#gloomy{
+    background:#dfdcea;
+}
+#fear{
+    background:#e0e0e0;
+}
