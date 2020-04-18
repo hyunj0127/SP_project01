@@ -32,8 +32,11 @@
 
     <script>
 
-    
-        
+        function emotion_sel(elem) {
+            let emotion_txt = elem.value;
+            $('#emotxt').append(emotion_txt);
+        }
+
         function listing() {
             $.ajax({
                 type: "GET",
@@ -46,7 +49,7 @@
                         let title_el = memo['title']
                         let content_el = memo['content']
                         let emotion_el = memo['emotion']
-                        
+
                     }
                 }
             });
@@ -84,36 +87,53 @@
 
     <nav class="nav navbar-expand navbar-light">
         <div class="collapse navbar-collapse" id="Logo">
-          <a class="navbar-brand" href="index.html">감정 대숲</a>
-          <ul class="navbar-nav mt-lg-0">
-            <li class="nav-item active">
-              <a class="nav-link" href="moodboard.html"><span>moodboard</span></a>
-            </li>
-          </ul>
-          <p></p>
-          <form class="form-inline my-2 my-lg-0">
-            <button class="btn btn-outline-info my-2 my-sm-0" href="form.html">새로 작성</button>
-          </form>
+            <a class="navbar-brand" href="index.html">감정 대숲</a>
+            <ul class="navbar-nav mt-lg-0">
+                <li class="nav-item active">
+                    <a class="nav-link" href="moodboard.html"><span>moodboard</span></a>
+                </li>
+            </ul>
+            <p></p>
+            <form class="form-inline my-2 my-lg-0">
+                <button class="btn btn-outline-info my-2 my-sm-0" href="form.html">새로 작성</button>
+            </form>
         </div>
-      </nav>
-    
+    </nav>
 
 
-    <div class="emo-color">
-        <a onclick="changecolor('joy')" id="joy">#fff3ff</a>
-        <a onclick="changecolor('sad')" id="sad">#e9e9ff</a>
-        <a onclick="changecolor('surprise')" id="surprise">#fffbe6</a>
-        <a onclick="changecolor('happy')" id="happy">#ebfcec</a>
-        <a onclick="changecolor('angry')" id="angry">#ffe6e6</a>
-        <a onclick="changecolor('annoy')" id="annoy">#ffeddc</a>
-        <a onclick="changecolor('gloomy')" id="gloomy">#dfdcea</a>
-        <a onclick="changecolor('fear')" id="fear">#e0e0e0</a>
+
+    <div class="emo-status">
+        <div id="emotxt"> 현재 감정 : </div>
+
+        <div class="emo-colors">
+            <button class="emo-color" value="즐거움" onclick="changecolor('joy'); emotion_sel(this);"
+                id="joy">#fff3ff</button>
+            <button class="emo-color" value="슬픔" onclick="changecolor('sad'); emotion_sel(this);"
+                id="sad">#e9e9ff</button>
+            <button class="emo-color" value="놀람" onclick="changecolor('surprise'); emotion_sel(this);"
+                id="surprise">#fffbe6</button>
+            <button class="emo-color" value="행복" onclick="changecolor('happy'); emotion_sel(this);"
+                id="happy">#ebfcec</button>
+            <button class="emo-color" value="분노" onclick="changecolor('angry'); emotion_sel(this);"
+                id="angry">#ffe6e6</button>
+            <button class="emo-color" value="짜증" onclick="changecolor('annoy'); emotion_sel(this);"
+                id="annoy">#ffeddc</button>
+            <button class="emo-color" value="우울" onclick="changecolor('gloomy'); emotion_sel(this);"
+                id="gloomy">#dfdcea</button>
+            <button class="emo-color" value="두려움" onclick="changecolor('fear'); emotion_sel(this);"
+                id="fear">#e0e0e0</button>
+        </div>
+
+
     </div>
+
 
     <div class="title-editor">
         <input placeholder="제목을 입력해주세요." class="title" type="text">
 
-        <p><hr></p>
+        <p>
+            <hr>
+        </p>
     </div>
     <div class="contents-editor">
 
