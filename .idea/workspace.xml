@@ -2,15 +2,27 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="abe39db4-bb6e-4ec1-8152-b1c929bfd756" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/SP_project01.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/SP_project01.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/form_style.css" beforeDir="false" afterPath="$PROJECT_DIR$/static/form_style.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app.py" beforeDir="false" afterPath="$PROJECT_DIR$/app.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/style.css" beforeDir="false" afterPath="$PROJECT_DIR$/static/style.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/templates/form.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/form.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/login.html" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/templates/moodboard.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/moodboard.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Python Script" />
+      </list>
+    </option>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -25,11 +37,17 @@
   </component>
   <component name="PropertiesComponent">
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/app_로그인시도실패....py" />
     <property name="settings.editor.selected.configurable" value="com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable" />
   </component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\현주\Desktop\Sparta_project01" />
+      <recent name="C:\Users\현주\Desktop\[ALL]sparta" />
+    </key>
+  </component>
   <component name="RunManager">
-    <configuration name="app" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+    <configuration name="app" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <module name="SP_project01" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -41,7 +59,7 @@
       <option name="IS_MODULE_SDK" value="true" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/app.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/app_로그인시도실패....py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -70,34 +88,42 @@
     <servers />
   </component>
   <component name="WindowStateProjectService">
+    <state x="828" y="175" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1587378813135">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="828" y="175" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1587378813135" />
+    <state x="1197" y="326" key="#com.intellij.fileTypes.FileTypeChooser" timestamp="1587293029031">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="1197" y="326" key="#com.intellij.fileTypes.FileTypeChooser/0.0.1920.1040@0.0.1920.1040" timestamp="1587293029031" />
     <state x="1093" y="113" key="CommitChangelistDialog2" timestamp="1586591747995">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="1093" y="113" key="CommitChangelistDialog2/0.0.1920.1040@0.0.1920.1040" timestamp="1586591747995" />
-    <state x="1224" y="261" key="FileChooserDialogImpl" timestamp="1587124153757">
+    <state x="1224" y="261" key="FileChooserDialogImpl" timestamp="1587297557862">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="1224" y="261" key="FileChooserDialogImpl/0.0.1920.1040@0.0.1920.1040" timestamp="1587124153757" />
-    <state width="915" height="279" key="GridCell.Tab.0.bottom" timestamp="1587128730575">
+    <state x="1224" y="261" key="FileChooserDialogImpl/0.0.1920.1040@0.0.1920.1040" timestamp="1587297557862" />
+    <state width="1899" height="276" key="GridCell.Tab.0.bottom" timestamp="1587379747948">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="915" height="279" key="GridCell.Tab.0.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1587128730575" />
-    <state width="915" height="279" key="GridCell.Tab.0.center" timestamp="1587128730575">
+    <state width="1899" height="276" key="GridCell.Tab.0.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1587379747948" />
+    <state width="1899" height="276" key="GridCell.Tab.0.center" timestamp="1587379747948">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="915" height="279" key="GridCell.Tab.0.center/0.0.1920.1040@0.0.1920.1040" timestamp="1587128730575" />
-    <state width="915" height="279" key="GridCell.Tab.0.left" timestamp="1587128730574">
+    <state width="1899" height="276" key="GridCell.Tab.0.center/0.0.1920.1040@0.0.1920.1040" timestamp="1587379747948" />
+    <state width="1899" height="276" key="GridCell.Tab.0.left" timestamp="1587379747948">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="915" height="279" key="GridCell.Tab.0.left/0.0.1920.1040@0.0.1920.1040" timestamp="1587128730574" />
-    <state width="915" height="279" key="GridCell.Tab.0.right" timestamp="1587128730575">
+    <state width="1899" height="276" key="GridCell.Tab.0.left/0.0.1920.1040@0.0.1920.1040" timestamp="1587379747948" />
+    <state width="1899" height="276" key="GridCell.Tab.0.right" timestamp="1587379747948">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="915" height="279" key="GridCell.Tab.0.right/0.0.1920.1040@0.0.1920.1040" timestamp="1587128730575" />
-    <state x="881" y="221" width="998" height="708" key="SettingsEditor" timestamp="1587124197721">
+    <state width="1899" height="276" key="GridCell.Tab.0.right/0.0.1920.1040@0.0.1920.1040" timestamp="1587379747948" />
+    <state x="881" y="221" width="998" height="708" key="SettingsEditor" timestamp="1587293584867">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="881" y="221" width="998" height="708" key="SettingsEditor/0.0.1920.1040@0.0.1920.1040" timestamp="1587124197721" />
+    <state x="881" y="221" width="998" height="708" key="SettingsEditor/0.0.1920.1040@0.0.1920.1040" timestamp="1587293584867" />
     <state x="1248" y="437" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1586592425088">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>

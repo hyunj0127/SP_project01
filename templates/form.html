@@ -33,9 +33,18 @@
     <script>
 
         function emotion_sel(elem) {
+            /*let emotxt = $().val("#emotxt");
+            if (emotxt == ''){
+                $("#emotxt").remove();
+                return;
+            } */
+            
             let emotion_txt = elem.value;
-            $('#emotxt').append(emotion_txt);
+            if ($(this).prop)
+            $("#emotxt").append(emotion_txt);
         }
+        
+
 
         function listing() {
             $.ajax({
@@ -43,7 +52,7 @@
                 url: "/api/list",
                 data: {},
                 success: function (response) {
-                    let memos = response['memos_list']
+                    let memos = response['mymeozs']
                     for (let i = 0; i < stars.length; i++) {
                         let memo = memos[i]
                         let title_el = memo['title']
@@ -103,7 +112,7 @@
 
 
     <div class="emo-status">
-        <div id="emotxt"> 현재 감정 : </div>
+        감정 상태 : <a id="emotxt">  </a>
 
         <div class="emo-colors">
             <button class="emo-color" value="즐거움" onclick="changecolor('joy'); emotion_sel(this);"

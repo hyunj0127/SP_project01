@@ -27,11 +27,11 @@
     font-weight: bold;
 }
 
-.login{
+.form{
     padding-top: 200px;
     margin: auto;
 }
-.login-btn{
+.form-btn{
     text-align: center;
     margin: 10px;
 }

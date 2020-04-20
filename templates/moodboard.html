@@ -27,6 +27,14 @@
 
         <link rel="stylesheet" type="text/css" href="../static/style.css">
 
+  <script>
+    $('#daily-feeling').css()
+      
+    function changecolor(id) {
+            document.body.style.background = document.getElementById(id).innerHTML;}
+
+  </script>
+
 </head>
 
 <nav class="nav navbar-expand navbar-light">
@@ -46,9 +54,8 @@
 
 
 <body>
-    <div class=emo-collect>
-        <div class=daily-feeling>
-            <a herf = ""></a>
+    <div class="emo-collect">
+        <div id="daily-feeling">
         </div>
     </div>
 
