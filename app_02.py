@@ -26,6 +26,7 @@ def memo_delete():
     db.mymemo.delete.one({'title':title_receive})
     return jsonify({'result':'success'})
 
+
 @app.route('/memo', methods=['POST'])
 def new_post():
     return render_template('form.html')

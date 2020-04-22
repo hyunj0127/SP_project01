@@ -36,42 +36,6 @@
     margin: 10px;
 }
 
-/*.container{
-    width: 100%;
-    height: 100%;
-}
-.menu ul{
-    display: inline-flex;
-    margin: 50px ;
-}
-.menu ul li{ 
-    list-style: none;
-    margin: 0 20px;
-    color: #6b6b6b;
-    cursor: pointer;
-}
-.logo {
-    margin-top: -7px;
-    margin-right: 50px;
-    font-size: 20px;
-}
-.new-btn{
-    top: 40px;
-    right: 80px;
-    text-align: right;
-    position: absolute;
-    color: #8c68ee90;
-    border: 2px solid transparent;
-    border-radius: 20px;
-    background-image: linear-gradient(#fff, #fff), radial-gradient(circle at top left,rgb(255, 189, 189),#8c68eeb9);
-    background-origin: border-box;
-    background-clip: content-box, border-box;
-}
-
-.new-btn span{
-    display: block;
-    padding: 8px 22px;
-}*/
 .card-btn {
     text-align: right
 }
@@ -96,6 +60,83 @@
     margin: 100px;
     padding-bottom: 25px;
     text-align: center;
+}
+
+body{
+    margin:0;
+    padding:0;
+}
+
+.title {
+    background-color:transparent;
+    border: transparent;
+	color:#00000080;
+	font-size:28px;
+	height:60px;
+    width:1000px;
+    margin-top: 30px;
+    padding: 15px 0;
+    
+}
+input:focus {outline:none;}
+.content {
+    
+    border: none;
+    background-color:transparent;
+	color:#00000080;
+	font-size:20px;
+	height:400px;
+    width:1000px;
+    padding: 15px 0;
+}
+textarea:focus {outline:none;}
+
+.post-btn{
+    text-align: right;
+    padding: 10px;
+}
+
+.emo-colors{
+    top:40px;
+    right: 40px;
+}
+.emotxt{
+    margin-top: 200px;
+}
+.emo-color{
+    width:30px;
+    height: 30px;
+    float: left;
+    border-radius: 15px;
+    text-indent: -9999px;
+    margin: 5px;
+    border: none;
+}
+
+
+#joy{
+    background:#fff3ff;
+}
+#sad{
+    background:#e9e9ff;
+}
+#surprise{
+    background:#fffbe6;
+}
+#angry{
+    background:#ffe6e6;
+}
+#happy{
+    background:#ebfcec;
+}
+#annoy{
+    background:#ffeddc;
+}
+#gloomy{
+    background:#dfdcea;
+}
+#fear{
+    background:#e0e0e0;
 }
 
 

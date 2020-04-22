@@ -11,16 +11,43 @@ def home():
     return render_template('index.html')
 
 
-@app.route('/memo', methods=['GET'])
+@app.route('/form')
+def form():
+    return render_template('form.html')
+
+
+## 폼에서 데이터 받아가기.
+@app.route('/memos', methods=['POST'])
+def new_post():
+    title_receive = request.form['title_give']
+    content_receive = request.form['content_give']
+    emo_receive = request.form['emo_give']
+
+    memo = {
+        'title': title_receive,
+        'content': content_receive,
+        'emo': emo_receive
+    }
+    db.memos.insert_one(memo)
+    return jsonify({'result':'success','msg':'입력이 완료되었습니다.'})
+
+
+## 폼에서 받은 데이 터 뿌려주기.
+@app.route('/memos', methods=['GET'])
 def listing():
-    # 1. 모든 document 찾기 & _id 값은 출력에서 제외하기
-    result=list(db.contents.find())
-    # 2. articles라는 키 값으로 영화정보 내려주기
-    return jsonify({'result':'success', 'msg':'GET 연결되었습니다!'})
+    memos = list(db.memos.find({},{'_id':0}))
+    return jsonify({'result' : 'success','memos' : memos})
+
+
+
+## 무드보드에 뿌려주기.
+@app.route('/moodboard', methods=['GET'])
+def moods():
+    mood = list(db.memos.find({},))
 
 
 
 
 
 if __name__ == '__main__':
-    app.run('0.0.0.0', port=8000, debug=True)
+    app.run('0.0.0.0', port=5000, debug=True)
