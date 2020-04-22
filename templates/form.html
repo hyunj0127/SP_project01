@@ -115,34 +115,9 @@
         let sel = document.getElementById('emo'); 
         let bgcolor = sel.options[sel.selectedIndex].value;
         if(bgcolor == "joy"){
-        document.body.style.backgroundColor = "#fff3ff";//bgcolor;
+            let bgCorlorCode = "#fff3ff";
         }
-        else if(bgcolor == "sad"){
-        document.body.style.backgroundColor = "#e9e9ff";//bgcolor;
-        }
-        else if(bgcolor == "surprise"){
-        document.body.style.backgroundColor = "#fffbe6";//bgcolor;
-        }
-        else if(bgcolor == "happy"){
-        document.body.style.backgroundColor = "#ebfcec";//bgcolor;
-        }
-        else if(bgcolor == "angry"){
-        document.body.style.backgroundColor = "#ffe6e6";//bgcolor;
-        }   
-         else if(bgcolor == "annoy"){
-        document.body.style.backgroundColor = "#ffeddc";//bgcolor;
-        }   
-        else if(bgcolor == "gloomy"){
-        document.body.style.backgroundColor = "#dfdcea";//bgcolor;
-        }
-        else if(bgcolor == "fear"){
-        document.body.style.backgroundColor = "#e0e0e0";//bgcolor;
-        }
-
-
-
-
-
+        document.body.style.backgroundColor = bgcolor;
  //   sel.style.backgroundColor = sel.value; 
     }
 
@@ -176,16 +151,17 @@
 
 
         <select id="emo">
-            <option class="joy" value="joy">즐거움</option>
-            <option class="sad" value="sad">슬픔</option>
-            <option class="surprise" value="surprise">놀람</option>
-            <option class="happy" value="happy">행복</option>
-            <option class="angry" value="angry">분노</option>
-            <option class="annoy" value="annoy">짜증</option>
-            <option class="gloomy" value="gloomy">우울</option>
-            <option class="fear" value="fear">두려움</option>
+            <option value="">현재의 기분은?</option>
+            <option class="joy" value="#fff3ff">즐거움</option>
+            <option class="sad" value=#e9e9ff>슬픔</option>
+            <option class="surprise" value=#fffbe6>놀람</option>
+            <option class="happy" value=#ebfcec>행복</option>
+            <option class="angry" value=#ffe6e6>분노</option>
+            <option class="annoy" value=#ffeddc>짜증</option>
+            <option class="gloomy" value=#dfdcea>우울</option>
+            <option class="fear" value=#e0e0e0>두려움</option>
         </select>
-        <button onclick="colorbg()" class="btn">선택하기</button>
+        <button onclick="colorbg()" class=btn>선택하기</button>
 
     </div>
 

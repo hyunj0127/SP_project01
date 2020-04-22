@@ -33,8 +33,9 @@
 
     <script>
 
+        ///DB에서 불러와서 카드 박스에 얹기///
         $(document).ready(function () {
-            $('#card-box').html('');
+            $('#cards-box').html('');
             listing();
         });
 
@@ -44,38 +45,51 @@
                 url: "/memos",
                 data: {},
                 success: function (response) {
-                    let memos = response['memos'];
-                    for (let i = 0; i < memos.length; i++) {
-                        make_card(memos[i]['title'], memos[i]['content'], memos[i]['emo']);
+                    if (response['result'] == 'success') {
+                        console.log(response['memos']);
+                        let memos = response['memos'];
+                        for (let i = 0; i < memos.length; i++) {
+                            let memo = memos[i];
+                            let title = memos['title'];
+                            let emo = memos['emo'];
+                            let content = memos['content'];                            
+                            make_card(title, content);                            
+                        }
+
+
+                    } else {
+                        alert('메모를 받아오지 못했습니다.')
                     }
                 }
             })
         }
 
 
-        function make_card(title, content) {
+        function make_card(title, emo, content) {
             let memo_list =
                 '<div class="card">\
                 <div class="card-body">\
                     <h5 class="card-title"> '+ title + ' </h5>\
+                    <h6 class="card-emo"> #'+emo+'</h6>\
                     <p class="card-text"> '+ content + ' </p>\
                     <div class="card-btn">\
                         <button onclick="del()" type="button" id="delete" class="card-btn-el">삭제</button>\
                     </div>\
                 </div>\
             </div>';
-            $('#card-box').append(memo_list);
+            $('#cards-box').append(memo_list);
         }
 
 
-        function del(title, content) {
+        ///포스트 삭제 기능///
+        function del() {
 
 
             $.ajax({
                 type: "POST",
                 url: "/",
                 data: "data",
-                dataType: "dataType",
+                dataType: {},
                 success: function (response) {
                     if (response['result'] == 'success') {
                         alert('삭제 완료!')
@@ -90,11 +104,12 @@
 
 </head>
 
+
 <body>
 
     <nav class="nav navbar-expand navbar-light">
         <div class="collapse navbar-collapse" id="Logo">
-            <a class="navbar-brand" href="home.html">감정 대숲</a>
+            <a class="navbar-brand" href="{{ url_for('home') }}">감정 대숲</a>
             <ul class="navbar-nav mt-lg-0">
                 <li class="nav-item">
                     <a class="nav-link dis" href="moodboard.html">moodboard</a>
@@ -102,7 +117,7 @@
             </ul>
             <p></p>
             <form class="form-inline my-2 my-lg-0">
-                <button class="btn btn-outline-info my-2 my-sm-0">새로 작성</button>
+                <button class="btn btn-outline-info my-2 my-sm-0" href="{{ url_for('form') }}">새로 작성</button>
             </form>
         </div>
     </nav>
@@ -115,38 +130,7 @@
     </div>
 
 
-    <div class="row row-cols-1 row-cols-md-3" id="cards-box">
-        <div class="col mb">
-            <div class="card">
-                <div class="card-body">
-                    <h5 class="card-title">+ title + </h5>
-                    <p class="card-text">This is a longer card with supporting text below as a natural lead-in to
-                        additional content. This content is a little bit longer.</p>
-                    <div class="card-btn">
-                        <button onclick="del()" type="button" id="delete" class="card-btn-el">삭제</button>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="col mb">
-            <div class="card">
-                <div class="card-body">
-                    <h5 class="card-title">Card title</h5>
-                    <p class="card-text">This is a longer card with supporting text below as a natural lead-in to
-                        additional content. This content is a little bit longer.</p>
-                </div>
-            </div>
-        </div>
-        <div class="col mb">
-            <div class="card">
-                <div class="card-body">
-                    <h5 class="card-title">Card title</h5>
-                    <p class="card-text">This is a longer card with supporting text below as a natural lead-in to
-                        additional content.</p>
-                </div>
-            </div>
-        </div>
-    </div>
+    <div class="row row-cols-1 row-cols-md-3" id="cards-box"></div>
 
 </body>
 

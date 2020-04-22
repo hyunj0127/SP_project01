@@ -41,12 +41,6 @@ def listing():
 
 
 ## 무드보드에 뿌려주기.
-
-@app.route('/moodboard')
-def moodboard():
-    return render_template('moodboard.html')
-
-
 @app.route('/moodboard', methods=['GET'])
 def moods():
     mood = list(db.memos.find({},))
