@@ -16,6 +16,7 @@ def home():
 def form():
     return render_template('form.html')
 
+
 ## 폼에서 데이터 받아가기.
 @app.route('/memos', methods=['POST'])
 def new_post():
@@ -39,17 +40,34 @@ def listing():
     return jsonify({'result' : 'success','memos' : memos})
 
 
+## 감정 불러오기
+@app.route('/recent', methods=['GET'])
+def recentemo():
+    emoadd = list(db.memos.find().sort({'_id': -1}).limit(2))
+    return jsonify({'result': 'success', 'memos': emoadd})
+
+
+
+## 카드 삭제하기
+@app.route('/delete', methods=['POST'])
+def card_delete():
+    title_receive = request.form['title_give']
+    db.memos.delete_one({'title':title_receive})
+    return jsonify({'result':"success"})
+
 
 ## 무드보드에 뿌려주기.
-
 @app.route('/moodboard')
 def moodboard():
     return render_template('moodboard.html')
 
 
-@app.route('/moodboard', methods=['GET'])
+@app.route('/moods', methods=['GET'])
 def moods():
-    mood = list(db.memos.find({},))
+    moods = list(db.memos.find({},{'_id':0}))
+    return jsonify({'result' : 'success','memos' : moods})
+
+
 
 
 

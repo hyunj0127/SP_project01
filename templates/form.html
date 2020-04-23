@@ -38,41 +38,24 @@
                 $("#emotxt").append(emotion_txt);
         }*/
 
-        /*
-                function listing() {
-                    $.ajax({
-                        type: "GET",
-                        url: "memos",
-                        data: {},
-                        success: function (response) {
-                            let memos = response['memos']
-                            for (let i = 0; i < memos.length; i++) {
-                                let memo = memos[i]
-                                let title_el = memo['title']
-                                let content_el = memo['content']
-                                let emotion_el = memo['emo']
-        
-                            }
-                        }
-                    });
-                }*/
-
 
         function submit() {
 
             let title = $('#title').val();
-            let content = $('#content').val();
             let emo = $('#emo').val();
+            let content = $('#content').val();
 
-            if (title == '') {
-                alert("제목을 입력해주세요");
+            if (emo == '') {
+                alert("감정을 선택해주세요.");
                 $('#title').focus();
                 return;
-            }
-            else if (content == '') {
-                alert("내용을 입력해주세요")
-                $('#content').focus();
+            }else if (title == '') {
+                alert("제목을 입력해주세요.")
+                $('#title').focus();
                 return;
+            }else if (content == '') {
+                alert("내용을 입력해주세요.")
+                $('#content').focus();
             }
 
             /*else {
@@ -82,8 +65,8 @@
 
             let data_give = {
                 'title_give': title,
-                'content_give': content,
-                'emo_give': emo
+                'emo_give': emo,
+                'content_give': content    
             }
 
             $.ajax({
@@ -94,8 +77,8 @@
                     if (response['result'] == 'success') {
                         alert(response['msg']);
                         $('#title').val('');
-                        $('#content').val('');
                         $('#emo').val('');
+                        $('#content').val('');
                         window.location.reload();
                     }
                 }
@@ -111,15 +94,29 @@
 
 
 
-        function colorbg() { 
-        let sel = document.getElementById('emo'); 
-        let bgcolor = sel.options[sel.selectedIndex].value;
-        if(bgcolor == "joy"){
-            let bgCorlorCode = "#fff3ff";
+        function colorbg() {
+            let sel = document.getElementById('emo');
+            let bgcolor = sel.options[sel.selectedIndex].value;
+            if (bgcolor == "joy") {
+                document.body.style.backgroundColor = "#fff3ff";//bgcolor;
+            } else if (bgcolor == "슬픔") {
+                document.body.style.backgroundColor = "#e9e9ff";//bgcolor;
+            } else if (bgcolor == "놀람") {
+                document.body.style.backgroundColor = "#fffbe6";//bgcolor;
+            } else if (bgcolor == "행복") {
+                document.body.style.backgroundColor = "#ebfcec";//bgcolor;
+            } else if (bgcolor == "분노") {
+                document.body.style.backgroundColor = "#ffe6e6";//bgcolor;
+            } else if (bgcolor == "짜증") {
+                document.body.style.backgroundColor = "#ffeddc";//bgcolor;
+            } else if (bgcolor == "우울") {
+                document.body.style.backgroundColor = "#dfdcea";//bgcolor;
+            } else if (bgcolor == "두려움") {
+                document.body.style.backgroundColor = "#e0e0e0";//bgcolor;
+            }
+            document.body.style.backgroundColor = bgcolor;
+            //   sel.style.backgroundColor = sel.value; 
         }
-        document.body.style.backgroundColor = bgcolor;
- //   sel.style.backgroundColor = sel.value; 
-    }
 
 
 
@@ -131,57 +128,56 @@
 
     <nav class="nav navbar-expand navbar-light">
         <div class="collapse navbar-collapse" id="Logo">
-            <a class="navbar-brand" href="index.html">감정 대숲</a>
+            <a class="navbar-brand" href="{{ url_for('home') }}">감정 대숲</a>
             <ul class="navbar-nav mt-lg-0">
                 <li class="nav-item active">
-                    <a class="nav-link" href="moodboard.html"><span>moodboard</span></a>
+                    <a class="nav-link" href="{{ url_for('moodboard') }}"><span>moodboard</span></a>
                 </li>
             </ul>
             <p></p>
             <form class="form-inline my-2 my-lg-0">
-                <button class="btn btn-outline-info my-2 my-sm-0" href="form.html">새로 작성</button>
+                <button class="btn btn-outline-info my-2 my-sm-0" href="{{ url_for('form') }}">새로 작성</button>
             </form>
         </div>
     </nav>
 
 
-<div class ="form">
-    <div class="emo-status">
-        감정 상태 : <a id="emotxt"> </a>
+    <div class="form">
+        <div class="form-row align-items-center">
+            감정 상태 :
+            <select class="form-control form-control col-md-4" id="emo">
+                <option value="">현재의 기분은?</option>
+                <option class="joy" value="즐거움">즐거움</option>
+                <option class="sad" value="슬픔">슬픔</option>
+                <option class="surprise" value="놀람">놀람</option>
+                <option class="happy" value="행복">행복</option>
+                <option class="angry" value="분노">분노</option>
+                <option class="annoy" value="짜증">짜증</option>
+                <option class="gloomy" value="우울">우울</option>
+                <option class="fear" value="두려움">두려움</option>
+            </select>
+            <button onclick="colorbg()" class=btn>선택하기</button>
+
+        </div>
 
 
-        <select id="emo">
-            <option value="">현재의 기분은?</option>
-            <option class="joy" value="#fff3ff">즐거움</option>
-            <option class="sad" value=#e9e9ff>슬픔</option>
-            <option class="surprise" value=#fffbe6>놀람</option>
-            <option class="happy" value=#ebfcec>행복</option>
-            <option class="angry" value=#ffe6e6>분노</option>
-            <option class="annoy" value=#ffeddc>짜증</option>
-            <option class="gloomy" value=#dfdcea>우울</option>
-            <option class="fear" value=#e0e0e0>두려움</option>
-        </select>
-        <button onclick="colorbg()" class=btn>선택하기</button>
+        <div class="title-editor">
+            <input type="text" id="title" placeholder="제목을 입력해주세요." required>
 
+            <p>
+                <hr>
+            </p>
+        </div>
+        <div class="contents-editor">
+
+            <textarea id="content" cols="700" rows="20" style="border:none" placeholder="내용을 입력해주세요."
+                required></textarea>
+
+        </div>
+        <div class="post-btn">
+            <button onclick="submit()" class = "submit-btn" type="submit">저장</button>
+        </div>
     </div>
-
-
-    <div class="title-editor">
-        <input type="text" id="title" placeholder="제목을 입력해주세요." required>
-
-        <p>
-            <hr>
-        </p>
-    </div>
-    <div class="contents-editor">
-
-        <textarea id="content" cols="700" rows="20" style="border:none" placeholder="내용을 입력해주세요." required></textarea>
-
-    </div>
-    <div class="post-btn">
-        <button onclick="submit()" type="sub" class="submit-btn">저장</button>
-    </div>
-</div>
 </body>
 
 </html>

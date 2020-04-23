@@ -108,7 +108,7 @@ textarea:focus {outline:none;}
     right: 40px;
 }
 .emotxt{
-    margin-top: 200px;
+    margin-top: 100px;
 }
 .emo-color{
     width:30px;
@@ -121,31 +121,30 @@ textarea:focus {outline:none;}
 }
 
 
-#joy{
+.joy{
     background:#fff3ff;
 }
-#sad{
+.sad{
     background:#e9e9ff;
 }
-#surprise{
+.surprise{
     background:#fffbe6;
 }
-#angry{
+.angry{
     background:#ffe6e6;
 }
-#happy{
+.happy{
     background:#ebfcec;
 }
-#annoy{
+.annoy{
     background:#ffeddc;
 }
-#gloomy{
+.gloomy{
     background:#dfdcea;
 }
-#fear{
+.fear{
     background:#e0e0e0;
 }
-
 
 
   

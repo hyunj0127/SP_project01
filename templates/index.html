@@ -39,6 +39,7 @@
             listing();
         });
 
+        ///DB에서 받아오기///
         function listing() {
             $.ajax({
                 type: "GET",
@@ -46,17 +47,15 @@
                 data: {},
                 success: function (response) {
                     if (response['result'] == 'success') {
-                        console.log(response['memos']);
+
                         let memos = response['memos'];
                         for (let i = 0; i < memos.length; i++) {
                             let memo = memos[i];
-                            let title = memos['title'];
-                            let emo = memos['emo'];
-                            let content = memos['content'];                            
-                            make_card(title, content);                            
+                            let title = memos[i]['title'];
+                            let emo = memos[i]['emo'];
+                            let content = memos[i]['content'];
+                            make_card(title, emo, content);
                         }
-
-
                     } else {
                         alert('메모를 받아오지 못했습니다.')
                     }
@@ -64,32 +63,54 @@
             })
         }
 
-
+        ///카드 만들기///
         function make_card(title, emo, content) {
             let memo_list =
                 '<div class="card">\
                 <div class="card-body">\
                     <h5 class="card-title"> '+ title + ' </h5>\
-                    <h6 class="card-emo"> #'+emo+'</h6>\
+                    <h6 class="card-emo"> #'+ emo + '</h6>\
                     <p class="card-text"> '+ content + ' </p>\
                     <div class="card-btn">\
-                        <button onclick="del()" type="button" id="delete" class="card-btn-el">삭제</button>\
+                        <a href="#" onclick="del(\''+title+'\'); return false;" type="button" id="delete" class="card-btn-el">삭제</a\
                     </div>\
                 </div>\
             </div>';
             $('#cards-box').append(memo_list);
         }
 
+        ///최근 감정 불러오기///
+        function recentemo() {
+            $.ajax({
+                type: "GET",
+                url: "/recent",
+                data: {},
+                success: function (response) {
 
-        ///포스트 삭제 기능///
-        function del() {
+                    if (response['result'] == 'success') {
+                        let memos_el = responsce['memos'];
+                        for (let i = 0; i < memos.length; i++) {
+                            let emo_el = memos_el[i]['emo'];
+                            addEmo(emo);
+                        }
+                    }
+                }
+            });
+        }
+        function addEmo(emo) {
+            let emoAdd = '<h1>최근 기분 상태는 ' + emo_el + '  입니다.</h1>'
+            $('#emo-rec').append(emoAdd);
+        }
 
 
+
+
+        ///카드 삭제 기능///
+        function del(title) {
             $.ajax({
                 type: "POST",
-                url: "/",
-                data: "data",
-                dataType: {},
+                url: "/delete",
+                data: { 'title_give': title },
                 success: function (response) {
                     if (response['result'] == 'success') {
                         alert('삭제 완료!')
@@ -97,8 +118,6 @@
                     }
                 }
             });
-
-
         }
     </script>
 
@@ -112,12 +131,12 @@
             <a class="navbar-brand" href="{{ url_for('home') }}">감정 대숲</a>
             <ul class="navbar-nav mt-lg-0">
                 <li class="nav-item">
-                    <a class="nav-link dis" href="moodboard.html">moodboard</a>
+                    <a class="nav-link dis" href="{{ url_for('moodboard') }}">moodboard</a>
                 </li>
             </ul>
             <p></p>
             <form class="form-inline my-2 my-lg-0">
-                <button class="btn btn-outline-info my-2 my-sm-0" href="{{ url_for('form') }}">새로 작성</button>
+                <a class="btn btn-outline-info my-2 my-sm-0" href="{{ url_for('form') }}">새로 작성</a>
             </form>
         </div>
     </nav>
@@ -125,8 +144,8 @@
 
 
 
-    <div class="weekly-emo">
-        <h1>최근 기분 상태는 "<a id>+ emo-color +</a> " 입니다.</h1>
+    <div class="weekly-emo" id="emo-rec">
+        <h1>최근 기분 상태는 '+ emo +' 입니다.</h1>
     </div>
 
 
