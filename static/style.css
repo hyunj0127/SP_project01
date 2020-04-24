@@ -55,13 +55,6 @@
     margin: 0 5px;
 }
 
-  @include media-breakpoint-only(lg) {
-    column-count: 3;
-  }
-  @include media-breakpoint-only(xl) {
-    column-count: 3;
-  }
-
 
 .weekly-emo{
     margin: 100px;
@@ -155,11 +148,74 @@ textarea:focus {outline:none;}
     padding-top: 50px;
 }
 
-.daily-feeling{
-    background-color: #8c68ee;
+.emo-chip{
+    float: left;
     width: 30px ;
     height: 100px;
     box-sizing: border-box;
     resize: none;
 }
-
+.즐거움{
+    background:#fff3ff;
+    float: left;
+    width: 50px ;
+    height: 200px;
+    box-sizing: border-box;
+    text-indent: -9999px;
+}
+.슬픔{
+    background:#e9e9ff;
+    float: left;
+    width: 50px ;
+    height: 200px;
+    box-sizing: border-box;
+    text-indent: -9999px;
+}
+.놀람{
+    background:#fffbe6;
+    float: left;
+    width: 50px ;
+    height: 200px;
+    box-sizing: border-box;
+    text-indent: -9999px;
+}
+.분노{
+    background:#ffe6e6;
+    float: left;
+    width: 50px ;
+    height: 200px;
+    box-sizing: border-box;
+    text-indent: -9999px;
+}
+.행복{
+    background:#ebfcec;
+    float: left;
+    width: 50px ;
+    height: 200px;
+    box-sizing: border-box;
+    text-indent: -9999px;
+}
+.짜증{
+    background:#ffeddc;
+    float: left;
+    width: 50px ;
+    height: 200px;
+    box-sizing: border-box;
+    text-indent: -9999px;
+}
+.우울{
+    background:#dfdcea;
+    float: left;
+    width: 50px ;
+    height: 200px;
+    box-sizing: border-box;
+    text-indent: -9999px;
+}
+.두려움{
+    background:#e0e0e0;
+    float: left;
+    width: 50px ;
+    height: 200px;
+    box-sizing: border-box;
+    text-indent: -9999px;
+}

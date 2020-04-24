@@ -3,94 +3,103 @@
 
 <head>
 
-  <!-- Webpage Title -->
-  <title>Mood Board</title>
+    <!-- Webpage Title -->
+    <title>Bamboo</title>
 
-  <!-- Required meta tags -->
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
-  <!-- Bootstrap CSS -->
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
-    integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+        integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
 
-  <!-- JS -->
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
-    integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
-    crossorigin="anonymous"></script>
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
-    integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
-    crossorigin="anonymous"></script>
+    <!-- JS -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+        integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+        crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+        integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+        crossorigin="anonymous"></script>
 
-  <link href="https://fonts.googleapis.com/css?family=Noto+Serif+KR&display=swap" rel="stylesheet">
 
-  <link rel="stylesheet" type="text/css" href="../static/style.css">
+    <link href="https://fonts.googleapis.com/css?family=Noto+Serif+KR&display=swap" rel="stylesheet">
 
-  <script>
-
-    /*
-    $('#daily-feeling').css()  
-    function changecolor(id) {
-    document.body.style.background = document.getElementById(id).innerHTML;}*/
-
-    ///DB에서 불러와서 칩에 얹기///
-    $(document).ready(function () {
-      $('#daily-feeling').html('');
-      newChip();
-
-      ///DB에서 받아오기///
-      function newChip() {
-        $.ajax({
-          type: "GET",
-          url: "/memos",
-          data: {},
-          success: function (response) {
-            if (response['result'] == 'success') {
-              let memos = response['memos'];
-              for (let i = 0; i < memos.length; i++) {
-                let memo = memos[i];
-                let emo = memos['emo'];
-                make_chip(emo);
-              }
-            }
-          }
-        })
-      }
-
-      function make_chip(emo) {
-        let chip_el =
-          $('#daily-feeling').append(chip_el)
-      }
-
-      
+    <!----<link rel="stylesheet" href="style.css">---->
+    <link rel="stylesheet" type="text/css" href="../static/style.css">
+    <link rel="stylesheet" type="text/css" href="../static/form_style.css">
 
 
 
-  </script>
+
+    <script>
+
+        ///DB에서 불러와서 카드 박스에 얹기///
+        $(document).ready(function () {
+            $('#daily-feeling').html('');
+            listing();
+        });
+        
+        ///DB에서 받아오기///
+        function listing() {
+            $.ajax({
+                type: "GET",
+                url: "/memos",
+                data: {},
+                success: function (response) {
+                    if (response['result'] == 'success') {
+
+                        let memos = response['memos'];
+                        for (let i = 0; i < memos.length; i++) {
+                            let memo = memos[i];
+                            let title = memos[i]['title'];
+                            let emo = memos[i]['emo'];
+                            let content = memos[i]['content'];
+                            make_chip(title, emo, content);
+                        }
+                    } else {
+                        alert('메모를 받아오지 못했습니다.')
+                    }
+                }
+            })
+        }
+
+
+        function make_chip(title,emo,content){
+        let chip_el = 
+        '<div class ="'+ emo +'" id="daily-feeling"></div>';
+            
+
+        $('#daily-feeling').append(chip_el)
+        }
+
+
+    </script>
 
 </head>
-<body><nav class="nav navbar-expand navbar-light">
-  <div class="collapse navbar-collapse" id="Logo">
-    <a class="navbar-brand" href="{{ url_for('home') }}">감정 대숲</a>
-    <ul class="navbar-nav mt-lg-0">
-      <li class="nav-item">
-        <a class="nav-link dis" href="{{ url_for('moodboard') }}">moodboard</a>
-      </li>
-    </ul>
-    <p></p>
-    <form class="form-inline my-2 my-lg-0">
-      <a class="btn btn-outline-info my-2 my-sm-0" href="{{ url_for('form') }}">새로 작성</a>
-    </form>
-  </div>
-</nav>
 
 
+<body>
+    <nav class="nav navbar-expand navbar-light">
+        <div class="collapse navbar-collapse" id="Logo">
+            <a class="navbar-brand" href="{{ url_for('home') }}">감정 대숲</a>
+            <ul class="navbar-nav mt-lg-0">
+                <li class="nav-item active">
+                    <a class="nav-link" href="{{ url_for('moodboard') }}"><span>moodboard</span></a>
+                </li>
+            </ul>
+            <p></p>
+            <form class="form-inline my-2 my-lg-0">
+                <a class="btn btn-outline-info my-2 my-sm-0" href="{{ url_for('form') }}">새로 작성</a>
+            </form>
+        </div>
+    </nav>
 
-  <div class="emo-collect">
-    <div id="daily-feeling">
+
+    <div class="emo-collect">
+        <div id="daily-feeling">'+ emo +'</div>
     </div>
-  </div>
-
-
 </body>
+</html>
+        

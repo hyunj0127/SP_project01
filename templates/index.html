@@ -36,9 +36,12 @@
         ///DB에서 불러와서 카드 박스에 얹기///
         $(document).ready(function () {
             $('#cards-box').html('');
-            listing();
+            listing(), addEmo();
         });
 
+
+        
+        
         ///DB에서 받아오기///
         function listing() {
             $.ajax({
@@ -56,6 +59,7 @@
                             let content = memos[i]['content'];
                             make_card(title, emo, content);
                         }
+                            addEmo(emo);
                     } else {
                         alert('메모를 받아오지 못했습니다.')
                     }
@@ -79,8 +83,10 @@
             $('#cards-box').append(memo_list);
         }
 
+
+        
         ///최근 감정 불러오기///
-        function recentemo() {
+        /*function recentemo() {
             $.ajax({
                 type: "GET",
                 url: "/recent",
@@ -96,9 +102,9 @@
                     }
                 }
             });
-        }
+        }*/
         function addEmo(emo) {
-            let emoAdd = '<h1>최근 기분 상태는 ' + emo_el + '  입니다.</h1>'
+            let emoAdd = '<h1>최근 기분 상태는 ' + emo + '  입니다.</h1>'
             $('#emo-rec').append(emoAdd);
         }
 
@@ -145,7 +151,6 @@
 
 
     <div class="weekly-emo" id="emo-rec">
-        <h1>최근 기분 상태는 '+ emo +' 입니다.</h1>
     </div>
 
 
