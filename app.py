@@ -43,7 +43,7 @@ def listing():
 ## 감정 불러오기
 @app.route('/recent', methods=['GET'])
 def recentemo():
-    emoadd = list(db.memos.find().sort({'_id': -1}).limit(2))
+    emoadd = list(db.memos.find().sort({'_id': -1}).limit(1))
     return jsonify({'result': 'success', 'memos': emoadd})
 
 
